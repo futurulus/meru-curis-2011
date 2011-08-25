@@ -1,0 +1,119 @@
+Person A trades object a for person B's object b.
+-OR-
+Person A submits to a change in state p in order to obtain person B's object b.
+
+A and B are: presences?  *entities?*  visibles?  avatars?
+a and b are: *presences?*  entities?  visibles?  avatars?
+p is: a field of A or B?  a presence?  a visible?  *a file or piece of code?* (kept on a third-party object host)  a database entry?
+
+How is "ownership" recorded?  creator entity has control, responsibility for keeping track of ownership
+	or perhaps belongs to whichever entity the presence is on (once persistence is implemented)
+If people have money, who keeps track of it?  How do we prevent people from just "creating money"?
+	What sorts of things are maintained entirely on the space?  What's just local on the object host?
+	Can fields of objects be enforced by the space?
+	What code is operating on the space right now?  What's operating on the object host?
+		Does the space have its own execution environment?  What objects does it keep track of?
+
+The only real form of ownership is control of a presence in an entity.
+This means that there must be a way to transfer control of a presence
+	Save its state, annihilate, recreate on another entity
+		Do we really mean entity, or do we mean object host?
+
+The state p must be stored on the escrow service's entity.  This may be visible through the
+space somehow, but only the escrow service can guarantee that the change in state happens and is
+irreversible.
+
+The presence may need to be stored on the escrow service's entity as well.  This is because
+if A can send a copy of a presence to B, B will necessarily be able to send unlimited copies of
+that presence to everyone else, thereby making everything valueless.
+
+But who polices the police?  How can we trust the escrow service not to start making copies of
+presences?  It seems that this would be pointless -- the escrow service controls what's valuable
+and what's not, and it would gain nothing that it didn't already have.  This would be like the Fed
+trying to make money by just printing more -- obviously the value goes down if there's more of it.
+
+The Fed is at least regulated by the laws of physics, though.  Inherent value is present in the actual,
+physical objects it manipulates (paper for dollar bills, machines, etc.).  In a virtual world, these
+things don't exist, and they can be created and destroyed at almost no cost.  There are a few things in
+the virtual world of value: physical server space/CPU cycles, control over existing objects on the space,
+code, and art.  The second is essentially immutable (right?  how does the space assign permissions to
+change an object in the world?), and the last has to be released to the public in order to be displayed
+in the system (unless there's some kind of DRM, but that would be dumb).
+
+That leaves server resources and code.  Allocation of server space is up to the space administrator;
+he/she/they have complete control over all objects in the world -- or at least they coordinate the
+disparate pieces stored in many different object hosts.  Code is only valuable if it is kept
+secret, which could be a valid business model for the world (since not even the space server has access
+to client code).
+
+Essentially: the space administrator is God.  Programmers are king.
+
+Is this the makings of a viable economy?
+_____
+
+The implementation of an escrow service would depend on the type of economy
+being modeled in Meru.  There are a few different possible models of
+transaction for a virtual world, and all of them must realistically run side-
+by-side -- not just one would be enough for a fair and practical economy.
+
+Two of them could be implemented with features currently in Sirikata:
+
+I. Virtual money/third-party state tracking.
+	
+	A "bank" application keeps track of the amount of money each entity has,
+	and acts as an intermediary in exchanges involving this money (or other
+	types of state that the bank may track).
+
+	Advantages: Familiar.  The money side of the escrow is as simple as can
+		be: change the numbers, money is paid.
+	Disadvantages: Complete central control.  This is necessary for money due
+		to the ease with which an entity can change any numbers assigned to
+		them locally.  Entire economy lost if escrow service crashes, quits,
+		or is compromised.
+	Implementation: Data stored in script for each entity that communicates
+		with escrow service.  At the minimum, this would include a number for
+		the amount of money the entity owns.  A possible extension to this
+		would be a whole system for keeping track of the state of entities as
+		seen by other applications, with a system of permissions for viewing
+		and changing states.
+
+II. Contracts and local ownership
+
+	Every entity runs code locally, never sending code across the space.  All
+	goods are really services, the owner of code promising to run it in
+	exchange for something else.
+
+	Advantages: Distributed among participants for maximum stability, supports
+		rapid growth of a free economy.  Arbitration rather than regulation.
+	Disadvantages: Checking that a contract is fulfilled would probably require
+		human intervention; an automated escrow service would be unfeasible
+		(at least for the actual content of the contracts -- one could automate
+		ensuring that both parties sign).
+	Escrow implementation: Third party keeps track of contracts signed by
+		entities, monitors complaints and reports them to human intermediaries.
+		A cryptographic signature system could be used to verify identities
+		<Ewen>.
+
+Another model would require an extra feature added to the Sirikata system,
+serialization code, which I believe is already in progress.
+
+III. Presence copying
+	
+	Ownership is determined by whose entity a presence is running on.
+	Transfer of ownership takes place by serializing a presence with its
+	associated scripts, creating a full copy on the other entity, and
+	destroying the original.
+
+	Advantages: Complete freedom for owner.  Supports collaboration in code
+		and art.
+	Disadvantages: One copy allows unlimited future copies, making any kind of
+		business model difficult.  Requires	serialization with closures to
+		implement.
+	Escrow implementation: Owner bundles up presence, associated scripts,
+		sends as message to escrow service.  Escrow service waits for other
+		party's contribution (any of I, II, III), shows the other party the
+		owner's script in action (behind the escrow service's object host --
+		possibly in a sandbox for maximum security <Ewen>), and if both
+		parties find the other's contribution acceptable, the escrow service
+		takes the necessary action to trade the two contributions, including
+		sending the code bundle to the other party.	

@@ -1,0 +1,20 @@
+action: 'create'		username, password
+	[reply]
+
+action: 'login'			username, password
+	[reply]
+
+action: 'logout'
+
+action: 'get'			key
+	[reply] value
+
+action: 'give'			what, to
+	[reply]
+
+action: 'trade'			what, to, for
+	[reply] seqNo, id
+	seqNo, id, status: 'success' | 'failure'
+
+	what, for: {type: 'money', value: 20.56}
+				{type: 'presence', value: '3fca356689...'}

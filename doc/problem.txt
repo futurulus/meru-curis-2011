@@ -1,0 +1,10 @@
+Assertion: complex movement is what makes virtual worlds interactive and interesting.
+
+Currently, the difficulty of coordinating motion in Sirikata grows quickly with increasing complexity, requiring:
+
+* constant monitoring of the state of the world
+* frequent updates to position and velocity
+* attention to numerical stability in feedback-loop approaches
+
+The space physics system is an exception, but it is not yet flexible enough to meet the needs of all applications.
+

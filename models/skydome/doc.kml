@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>SkyinGE.kmz</name>
+	<open>1</open>
+	<Style id="sn_ylw-pushpin">
+	</Style>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.2</scale>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark>
+		<name>SkyinGE</name>
+		<styleUrl>#msn_ylw-pushpin</styleUrl>
+		<Model id="model_1">
+			<altitudeMode>absolute</altitudeMode>
+			<Location>
+				<longitude>-8.419553747949829</longitude>
+				<latitude>54.30117072825394</latitude>
+				<altitude>0</altitude>
+			</Location>
+			<Orientation>
+				<heading>90</heading>
+				<tilt>0</tilt>
+				<roll>0</roll>
+			</Orientation>
+			<Scale>
+				<x>8</x>
+				<y>8</y>
+				<z>8</z>
+			</Scale>
+			<Link>
+				<href>files/skydome.dae</href>
+			</Link>
+			<ResourceMap>
+				<Alias>
+					<targetHref>clouds.jpg</targetHref>
+					<sourceHref>..files/clouds.jpg</sourceHref>
+				</Alias>
+			</ResourceMap>
+		</Model>
+	</Placemark>
+</Document>
+</kml>

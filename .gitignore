@@ -1,0 +1,8 @@
+# Temporary vim files
+*~
+
+# Temporary emacs files
+.#*
+
+# Windows image database files
+*/Thumbs.db

@@ -1,0 +1,13 @@
+state: {
+	app: 'money',
+	user: '7fcc8113...',
+	key: 'balance',
+	value: 35095,
+	permission: {
+		'money': {r: true, w: true, p: true},
+		'#3acefb08...': {r: true, w: true, p: true},
+		'#7fcc8113...': {r: true, w: false, p: false},
+		'#2a4d07d0...': {r: true, w: true, p: true},
+		'': {r: false, w: false, p: false}, 
+	},
+};

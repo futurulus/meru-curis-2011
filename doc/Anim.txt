@@ -1,0 +1,18 @@
+working animation
+meerkat:///jterrace/male.dae/optimized/0/male.dae
+meerkat:///jterrace/girl.dae/optimized/0/girl.dae
+meerkat:///danielrh/maleWalkIdleSit.dae/optimized/0/maleWalkIdleSit.dae
+meerkat:///tahirazim/walkfixedok.dae/optimized/0/walkfixedok.dae
+meerkat:///tahirazim/walkingman.dae/optimized/1/walkingman.dae
+meerkat:///tahirazim/idlekid.dae/optimized/0/idlekid.dae
+meerkat:///tahirazim/sittingkid.dae/optimized/0/sittingkid.dae
+
+broken animation
+meerkat:///danielrh/femaleWalkIdleSit.dae/optimized/0/femaleWalkIdleSit.dae (torso is bizarrely stretched)
+
+broken meshes
+meerkat:///kittyvision/models/elephant.dae/optimized/0/elephant.dae (crashes, not reported)
+meerkat:///kittyvision/bug/mechanicalmosquito.dae/optimized/0/mechanicalmosquito.dae ('excessively complicated: 582 draw calls')
+meerkat:///kittyvision/fish/beta.dae/optimized/0/beta.dae (crashes, successfully reported -- over 1000 textures!)
+meerkat:///kittyvision/bug/fly.dae/optimized/0/fly.dae (just invisible)
+meerkat:///elliotconte/models/explosion.dae/optimized/0/explosion.dae (just invisible)

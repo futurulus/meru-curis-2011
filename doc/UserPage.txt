@@ -1,0 +1,42 @@
+Hi everybody!  My name's Will Monroe.  I'm a sophomore, a [http://cs198.stanford.edu/ CS 106 section leader], and a member of the [http://lsjumb.stanford.edu/ Stanford Band].  I'm majoring in (''A'' &middot; CS + ''B'' &middot; SymSys), with ''A'' and ''B'' defined by boundary conditions, plus probably a minor in physics on the side.
+
+I run a dual-boot setup with Windows 7 and [http://ubuntu.com Ubuntu] 10.10 (Maverick Meerkat).
+
+== Interests ==
+
+=== Education ===
+I live to teach.  One person's knowledge isn't worth much; put that knowledge in hundreds of other brains, and then there's a pretty good chance it'll make a difference in the world.  I'll be happy to try to teach you anything, whether I [[Wikipedia:C++ | actually know it]] or [[Wikipedia:Quantum mechanics | not]].
+
+=== Languages ===
+[[Wikipedia:English language | Natural]] and [[Wikipedia:Lojban | artificial]], [[Wikipedia:French language | human]] and [[Wikipedia:Python (programming language) | computer]], [[Wikipedia:Spanish language | familiar]] and [[Wikipedia:Klingon language | alien]].  If you can speak it, sign it, transmit it, or code in it, I want to learn it (and then use it to communicate with you).
+
+=== Codes and ciphers ===
+You should take a look at my sketch pad some time.  Not many actual sketches, but quite a lot of writing in various ciphers and [[Wikipedia:constructed language |]]s.
+
+=== Science and technology ===
+There's something beautiful about the way the world works, and about the fact that we can learn how it works.  I'm particularly interested in physics and mathematics, and how they can be used to gain a deeper understanding of why things are the way they are.
+
+== Experience ==
+
+=== Mathematics and physics of 3-D worlds ===
+If you need to know how to do crazy things with vectors, or what angular momentum/coefficients of restitution/quaternions/Euler angles are and how you use them, I'm your man -- after the professor and Ph.D. students, of course, who I'm sure do this stuff in their sleep.
+
+=== Graphics ===
+I've built up some handy knowledge of how to use graphics libraries over the years.  Nothing formal, but I could hack something together in OpenGL if need be.
+
+=== Scripting languages ===
+From working with the likes of [http://3dgamestudio.com/ 3-D Gamestudio] and [http://www.garagegames.com/products/torque-3d Torque], I know a bit about the ins and outs of game engine scripting.  I'm optimistic that this will be useful for getting the hang of scripting in Emerson.
+
+== Ideas ==
+
+=== Science Exploratorium ===
+Use the virtual world to demonstrate "hands-on" experiments that would be impractical to construct in a real-world exploratorium (atomic-scale, high-energy, or otherwise expensive setups in particular).  Hey, there's gotta be ''some'' use for the Physics 60 series, right?
+
+=== Virtual sports ===
+A classic 3-D game subgenre (and what kind of city wouldn't have sports teams?).  Soccer and hockey would be relatively easy.  Basketball would be a bit trickier.  Baseball and (American) football would be for the truly bold.
+
+=== Meru University ===
+Education through virtual interactions!  There are a couple of different ways to approach this, depending on the capabilities of the application-building system and how we want the university to work.  Possibilities might include long-distance live video, recorded video lectures, chat-based interactive sessions, automated lecturer avatars, or some combination of the above.
+
+=== Puzzle games, scavenger hunts, epic quests ===
+I've always wanted to design an elaborate puzzle along the lines of ''The Da Vinci Code'', ''National Treasure'', or other such potboilers.  Devising a Meru-wide version of one of these might be a fun task.

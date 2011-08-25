@@ -1,0 +1,72 @@
+wmonroe4@Will-Hydrogen:~/Local/school/_CURIS/build/cmake$ gdb ./cppoh_d
+GNU gdb (Ubuntu/Linaro 7.2-1ubuntu11) 7.2
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/wmonroe4/Local/school/_CURIS/build/cmake/cppoh_d...done.
+(gdb) run
+Starting program: /home/wmonroe4/Local/school/_CURIS/build/cmake/cppoh_d 
+[Thread debugging using libthread_db enabled]
+[JS] INFO: [JS] Initializing JS Plugin.
+[New Thread 0x7fffdf9bc700 (LWP 23232)]
+[New Thread 0x7fffbb1bb700 (LWP 23233)]
+[OH] DEBUG: [HO] Creating a script object for object
+[OH] DEBUG: [HO] Creating script for object with args of --init-script=std/default.em
+[JS] ERROR: [JS] Uncaught exception:
+std/shim.em:1: ReferenceError: __system is not defined
+system  =  __system;
+^
+ReferenceError: __system is not defined
+    at std/shim.em:1:1
+
+[JS] INFO: [JS] Have an initial script to import from std/default.em
+[JS] ERROR: [JS] Uncaught exception:
+ReferenceError: __system is not defined
+    at std/shim.em:1:1
+
+[JS] ERROR: [JS] Uncaught exception:
+std/default.em:1: ReferenceError: __system is not defined
+system.require( 'std/script/scriptable.em' );
+       ^
+ReferenceError: __system is not defined
+    at std/shim.em:1:1
+
+[OH] DEBUG: [HO] Creating a script object for object
+[OH] DEBUG: [HO] Creating script for object with args of --init-script=std/defaultAvatar.em
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007fffdfef17dc in v8::Context::Enter() () from libscripting-js_d.so
+(gdb) bt
+#0  0x00007fffdfef17dc in v8::Context::Enter() () from libscripting-js_d.so
+#1  0x00007fffdfdba891 in v8::Context::Scope::Scope (this=0x7fffffffcde0, 
+    context=...)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-v8/include/v8.h:3295
+#2  0x00007fffdfde03b0 in Sirikata::JS::JSContextStruct::createContextObjects (
+    this=0xcc0420)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSContextStruct.cpp:47
+#3  0x00007fffdfde0309 in Sirikata::JS::JSContextStruct::JSContextStruct (
+    this=0xcc0420, parent=0x90d900, whichPresence=0x0, home=0x7fffffffd410, 
+    sendEveryone=true, recvEveryone=true, proxQueries=true, canImport=true, 
+    canCreatePres=true, canCreateEnt=true, canEval=true, contGlobTempl=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSContextStruct.cpp:36
+#4  0x00007fffdfda0acf in Sirikata::JS::JSObjectScript::JSObjectScript (
+    this=0x90d900, ho=..., args=..., jMan=0x8aad20)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectScript.cpp:243
+#5  0x00007fffdfd981b9 in Sirikata::JS::JSObjectScriptManager::createObjectScript (this=0x8aad20, ho=..., args=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectScriptManager.cpp:448
+#6  0x00007ffff6d69de2 in Sirikata::HostedObject::initializeScript (
+    this=0x918d80, script=..., args=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/HostedObject.cpp:308
+#7  0x00007ffff6d51f7b in Sirikata::ObjectHost::createObject (this=0x8c1dc0, 
+    uuid=..., script_type=0x7fffffffdc90, script_opts=0x7fffffffdc80)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/ObjectHost.cpp:105
+#8  0x00007fffe0649367 in Sirikata::CSVObjectFactory::generate (this=0xcb0ea0)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/csvfactory/CSVObjectFactory.cpp:244
+#9  0x000000000040bca4 in main (argc=1, argv=0x7fffffffe298)
+    at /home/wmonroe4/Local/school/_CURIS/cppoh/src/main.cpp:157
+

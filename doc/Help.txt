@@ -1,0 +1,10 @@
+3 mailing lists:
+	emerson-users@groups.google.com (stuff that has to do with the language)
+	meru-curis (private to CURIS)
+	sirikata-dev (don't)
+
+documentation:
+	bmistree/newDocs
+	bmistree/docsHtml
+	sirikata.com/docs
+	sirikata.com/wiki

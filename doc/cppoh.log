@@ -1,0 +1,162 @@
+[UI] DEBUG: Command: system.import('work/weather.em');
+
+Program received signal SIGSEGV, Segmentation fault.
+Sirikata::JS::JSPositionListener::getSporef (this=0x1456400)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSPositionListener.cpp:66
+66	    return jpp->sporefToListenTo;
+(gdb) bt
+#0  Sirikata::JS::JSPositionListener::getSporef (this=0x1456400)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSPositionListener.cpp:66
+#1  0x00007fffdf8a02a2 in Sirikata::JS::JSContextStruct::hasPresence (
+    this=0x1733dc0, sporef=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSContextStruct.cpp:358
+#2  0x00007fffdf8a057e in Sirikata::JS::JSContextStruct::canReceiveMessagesFor
+    (this=0x1733dc0, receiver=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSContextStruct.cpp:323
+#3  0x00007fffdf8bfd6c in Sirikata::JS::JSEventHandlerStruct::matches (
+    this=0x82b5d40, obj=..., incoming_sender=<value optimized out>, 
+    receiver=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/JSObjectStructs/JSEventHandlerStruct.cpp:109
+#4  0x00007fffdf848b87 in Sirikata::JS::EmersonScript::deserializeMsgAndDispatch (this=0x16fd380, src=..., dst=..., js_msg=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/EmersonScript.cpp:665
+#5  0x00007fffdf8499a8 in Sirikata::JS::EmersonScript::handleScriptCommRead (
+    this=0x16fd380, src=..., dst=..., payload=...)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/EmersonScript.cpp:630
+#6  0x00007fffdf854059 in Sirikata::JS::EmersonMessagingManager::handleScriptCommStreamRead (this=0x16fd518, sstptr=..., prevdata=0x863ad80, 
+    buffer=<value optimized out>, length=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/plugins/js/EmersonMessagingManager.cpp:100
+#7  0x00007fffdf85b99d in operator() (__functor=<value optimized out>, 
+    __args#0=0x9ceb000 "\b\001\022\023\n\arequest\022\b\n\006script\022-\n\006script\022#\n!system.import('work/weather.em');\022\v\n\005seqNo\022\002\020", 
+    __args#1=119) at /usr/include/c++/4.5/../4.5.2/tr1/functional:568
+#8  __call<unsigned char*&, int&, 0, 1, 2, 3, 4> (
+    __functor=<value optimized out>, 
+    __args#0=0x9ceb000 "\b\001\022\023\n\arequest\022\b\n\006script\022-\n\006script\022#\n!system.import('work/weather.em');\022\v\n\005seqNo\022\002\020", 
+    __args#1=119) at /usr/include/c++/4.5/../4.5.2/tr1/functional:1144
+#9  operator()<unsigned char*, int> (__functor=<value optimized out>, 
+    __args#0=0x9ceb000 "\b\001\022\023\n\arequest\022\b\n\006script\022-\n\006script\022#\n!system.import('work/weather.em');\022\v\n\005seqNo\022\002\020", 
+    __args#1=119) at /usr/include/c++/4.5/../4.5.2/tr1/functional:1198
+#10 std::tr1::_Function_handler<void(unsigned char*, int), std::tr1::_Bind<std::tr1::_Mem_fn<void (Sirikata::JS::EmersonMessagingManager::*)(std::tr1::shared_ptr<Sirikata::Stream<Sirikata::SpaceObjectReference> >, std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >*, unsigned char*, int)>(Sirikata::JS::EmersonMessagingManager*, std::tr1::shared_ptr<Sirikata::Stream<Sirikata::SpaceObjectReference> >, std::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >*, std::tr1::_Placeholder<1>, std::tr1::_Placeholder<2>)> >::_M_invoke(const std::tr1::_Any_data &, unsigned char *, int) (
+    __functor=<value optimized out>, 
+    __args#0=0x9ceb000 "\b\001\022\023\n\arequest\022\b\n\006script\022-\n\006script\022#\n!system.import('work/weather.em');\022\v\n\005seqNo\022\002\020", 
+    __args#1=119) at /usr/include/c++/4.5/../4.5.2/tr1/functional:1675
+#11 0x00007ffff70de72f in operator() (this=0x80b5d80, 
+    skipLength=<value optimized out>)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:2044
+#12 Sirikata::Stream<Sirikata::SpaceObjectReference>::sendToApp (
+    this=0x80b5d80, skipLength=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/include/sirikata/core/network/SSTImpl.hpp:2003
+#13 0x00007ffff70e7f6e in Sirikata::Stream<Sirikata::SpaceObjectReference>::receiveData (this=0x80b5d80, streamMsg=0x85b6150, buffer=0x8068f48, offset=0, 
+    len=119)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/include/sirikata/core/network/SSTImpl.hpp:2041
+#14 0x00007ffff70e8482 in Sirikata::Connection<Sirikata::SpaceObjectReference>::handleDataPacket (this=0x85d5000, received_stream_msg=0x85b6150)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/include/sirikata/core/network/SSTImpl.hpp:895
+#15 0x00007ffff70ec48b in Sirikata::Connection<Sirikata::SpaceObjectReference>::parsePacket (this=0x85d5000, received_channel_msg=0x86e1000)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/include/sirikata/core/network/SSTImpl.hpp:813
+#16 0x00007ffff70ec841 in Sirikata::Connection<Sirikata::SpaceObjectReference>::receiveMessage (this=0x85d5000, recv_buff=<value optimized out>, 
+    len=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/include/sirikata/core/network/SSTImpl.hpp:1019
+#17 0x00007ffff70d2ad8 in operator() (__functor=<value optimized out>, 
+    __args#0=<value optimized out>, __args#1=<value optimized out>, 
+    __args#2=...) at /usr/include/c++/4.5/../4.5.2/tr1/functional:568
+#18 __call<Sirikata::ODP::Endpoint const&, Sirikata::ODP::Endpoint const&, Sirikata::DataReference<void const*>&, 0, 1, 2, 3> (
+    __functor=<value optimized out>, __args#0=<value optimized out>, 
+    __args#1=<value optimized out>, __args#2=...)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:1144
+#19 operator()<const Sirikata::ODP::Endpoint, const Sirikata::ODP::Endpoint, Sir---Type <return> to continue, or q <return> to quit---
+ikata::DataReference<const void*> > (__functor=<value optimized out>, 
+    __args#0=<value optimized out>, __args#1=<value optimized out>, 
+    __args#2=...) at /usr/include/c++/4.5/../4.5.2/tr1/functional:1198
+#20 std::tr1::_Function_handler<void(const Sirikata::ODP::Endpoint&, const Sirikata::ODP::Endpoint&, Sirikata::DataReference<const void*>), std::tr1::_Bind<std::tr1::_Mem_fn<void (Sirikata::Connection<Sirikata::SpaceObjectReference>::*)(const Sirikata::ODP::Endpoint&, const Sirikata::ODP::Endpoint&, Sirikata::DataReference<const void*>)>(Sirikata::Connection<Sirikata::SpaceObjectReference>*, std::tr1::_Placeholder<1>, std::tr1::_Placeholder<2>, std::tr1::_Placeholder<3>)> >::_M_invoke(const std::tr1::_Any_data &, const Sirikata::ODP::Endpoint &, const Sirikata::ODP::Endpoint &, Sirikata::DataReference<void const*>) (
+    __functor=<value optimized out>, __args#0=<value optimized out>, 
+    __args#1=<value optimized out>, __args#2=...)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:1675
+#21 0x00007ffff7a85b65 in operator() (this=0x159e5a0, src_match_ep=..., 
+    src_real_ep=..., dst=..., data=...)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:2044
+#22 Sirikata::ODP::DelegatePort::tryDeliver (this=0x159e5a0, src_match_ep=..., 
+    src_real_ep=..., dst=..., data=...)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/src/odp/DelegatePort.cpp:98
+#23 0x00007ffff7a85e73 in Sirikata::ODP::DelegatePort::deliver (
+    this=0x159e5a0, src=..., dst=..., data=...)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/src/odp/DelegatePort.cpp:84
+#24 0x00007ffff7a84143 in Sirikata::ODP::DelegateService::deliver (
+    this=0xf53d80, src=..., dst=..., data=...)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/src/odp/DelegateService.cpp:134
+#25 0x00007ffff71023f3 in Sirikata::HostedObject::receiveMessage (
+    this=0x10ce600, space=..., msg=0x85b6070)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/HostedObject.cpp:497
+#26 0x00007ffff70f1a5d in Sirikata::ObjectHost::handleObjectMessage (
+    this=<value optimized out>, sporef_internalID=..., space=..., 
+    msg=0x85b6070)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/ObjectHost.cpp:169
+#27 0x00007ffff70d04e9 in operator() (this=0xc49a00, msg=0x85b6070)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:2044
+#28 Sirikata::SessionManager::handleServerMessage (this=0xc49a00, 
+    msg=0x85b6070)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/SessionManager.cpp:758
+#29 0x00007ffff70d0828 in Sirikata::SessionManager::handleServerMessages (
+    this=0xc49a00, conn=0xf17300)
+    at /home/wmonroe4/Local/school/_CURIS/liboh/src/SessionManager.cpp:725
+#30 0x00007ffff7aa7cad in operator() (base=<value optimized out>, 
+    service_impl=..., impl=@0x7fffffffd928)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:2044
+#31 asio_handler_invoke<std::tr1::function<void()> > (
+    base=<value optimized out>, service_impl=..., impl=@0x7fffffffd928)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/handler_invoke_hook.hpp:62
+#32 invoke<std::tr1::function<void()>, std::tr1::function<void()> > (
+    base=<value optimized out>, service_impl=..., impl=@0x7fffffffd928)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/handler_invoke_helpers.hpp:41
+#33 boost::asio::detail::strand_service::handler_wrapper<std::tr1::function<void()> >::do_invoke(boost::asio::detail::strand_service::handler_base *, boost::asio::detail::strand_service &, implementation_type &) (
+    base=<value optimized out>, service_impl=..., impl=@0x7fffffffd928)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/strand_service.hpp:261
+#34 0x00007ffff7aa72eb in invoke (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/strand_service.hpp:109
+#35 operator() (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/strand_service.hpp:144
+#36 asio_handler_invoke<boost::asio::detail::strand_service::invoke_current_hand---Type <return> to continue, or q <return> to quit---
+ler> (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/handler_invoke_hook.hpp:62
+#37 invoke<boost::asio::detail::strand_service::invoke_current_handler, boost::asio::detail::strand_service::invoke_current_handler> (
+    __functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/handler_invoke_helpers.hpp:41
+#38 dispatch<boost::asio::detail::strand_service::invoke_current_handler> (
+    __functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/task_io_service.hpp:180
+#39 dispatch<boost::asio::detail::strand_service::invoke_current_handler> (
+    __functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/impl/io_service.ipp:130
+#40 dispatch<std::tr1::function<void()> > (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/strand_service.hpp:374
+#41 dispatch<std::tr1::function<void()> > (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/strand.hpp:158
+#42 operator() (__functor=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/wrapped_handler.hpp:48
+#43 std::tr1::_Function_handler<void(), boost::asio::detail::wrapped_handler<boost::asio::io_service::strand, std::tr1::function<void()> > >::_M_invoke(const std::tr1::_Any_data &) (__functor=<value optimized out>)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:1675
+#44 0x00007ffff7aa0a57 in operator() (base=<value optimized out>)
+    at /usr/include/c++/4.5/../4.5.2/tr1/functional:2044
+#45 asio_handler_invoke<std::tr1::function<void()> > (
+    base=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/handler_invoke_hook.hpp:62
+#46 invoke<std::tr1::function<void()>, std::tr1::function<void()> > (
+    base=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/handler_invoke_helpers.hpp:41
+#47 handler_wrapper<std::tr1::function<void()> >::do_call(boost::asio::detail::handler_queue::handler *) (base=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/handler_queue.hpp:192
+#48 0x00007ffff7a6bf62 in invoke (this=0x8a0460, ec=...)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/handler_queue.hpp:39
+#49 do_one (this=0x8a0460, ec=...)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/task_io_service.hpp:268
+#50 boost::asio::detail::task_io_service<boost::asio::detail::epoll_reactor<false> >::run (this=0x8a0460, ec=...)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/detail/task_io_service.hpp:103
+#51 0x00007ffff7aa0508 in run (this=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/dependencies/installed-boost/include/boost/asio/impl/io_service.ipp:68
+#52 Sirikata::Network::IOService::run (this=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/src/network/IOService.cpp:102
+#53 0x00007ffff7ab8249 in Sirikata::Context::run (this=0x8b4500, nthreads=0, 
+    exthreads=Sirikata::Context::IncludeOriginal)
+    at /home/wmonroe4/Local/school/_CURIS/libcore/src/service/Context.cpp:98
+#54 0x0000000000405566 in main (argc=<value optimized out>, 
+    argv=<value optimized out>)
+    at /home/wmonroe4/Local/school/_CURIS/cppoh/src/main.cpp:181
+
