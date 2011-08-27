@@ -13,8 +13,8 @@ under the terms of their respective licenses:
 	   Consult their individual READMEs or their descriptions on the Sirikata
 	   CDN (http://open3dhub.com/profile/wmonroe4) for links to the original
 	   and information about copying.
- * all files in the `zombies` subdirectory Copyright (c) 2011, Jiwon Kim.
-       Distributed under the terms of the license below.
+ * flock_stationary.em and all files in the `zombies` subdirectory Copyright
+       (c) 2011, Jiwon Kim.  Distributed under the terms of the license below.
  * bankserver.em, queryDistance.em, and script.em Copyright (c) 2011, Elliot
        Conte.  Distributed under the terms of the license below.
 

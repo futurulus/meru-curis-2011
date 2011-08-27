@@ -1,0 +1,233 @@
+Here's a brief synopsis of how to use each of the files, and how well they
+are working.  Notice that many depend on being in a folder called work/,
+directly beneath the main scripts directory (share/js/scripts/ in the release
+build, liboh/plugins/js/scripts in the source build).  Creating such a folder
+and copying over all the .em files can frequently get rid of import errors.
+
+axes.em
+drag
+	handler.em
+	move.em
+	rotate.em
+	scale.em
+dragControls.em
+dragControls.js
+	Status: OUTDATED
+		This is an older version of restricted axis dragging, replaced by
+		Zhihong's line-drawing library in commit aaff917 (4 Aug 2011).
+		Getting it to work requires some intricate changes to
+		std/graphics/default.em to set up key bindings, though hopefully
+		the interface is somewhat straightforward if anyone is nostalgic for
+		the giant glowing axes that cover up people's screens when selected.
+
+bankserver.em
+state.em
+statetest.em
+	Status: OUTDATED
+		An earlier version of the bank/object ownership code now developed
+		by Elliot Conte.
+
+billiards_motion.em
+	Status: WORKING
+		system.import('work/billiards_motion.em');
+		runBilliards();
+		Click on the cue ball (the white one) and press Enter.
+billiards_physics.em
+	Status: BUGGY
+		Make sure you are running the space with --loc=bulletphysics
+		The table will have the same orientation as the presence it's
+		    run on, so make sure the presence is oriented sensibly!
+		system.import('work/billiards_physics.em');
+		hitCue();
+		You can only hit the cue once -- the second time, it will jump to a
+			far-away location.
+billtest.prettyprint.em
+billtest.vec3.em
+	Status: OUTDATED
+		Attempts at reproducing Sirikata bugs that appeared while I was
+		writing billiards_motion that have since been fixed.
+
+birdGrow.em
+	Status: WORKING
+		system.import('work/birdGrow.em');
+		grow();
+		Causes a presence to grow slowly to scale 10 and then shrink.
+
+bounce.em
+	Status: WORKING
+		system.import('work/bounce.em');
+		var b = new motion.Bounce(system.self, <y coordinate, e.g. -20>, <elasticity, e.g. 0.9>);
+		Causes system.self to bounce when it falls below a certain y
+		coordinate.  Best combined with a change in velocity, a Gravity motion
+		controller, or some other form of motion to make bouncing happen.
+
+bugdemo.em
+	Status: OUTDATED
+		Another reproduction of a bug that has now been fixed.
+
+butterfly.em
+	Status: BUGGY (rim shot)
+		Make a presence with mesh:
+			meerkat:///wmonroe4/butterfly.dae/optimized/butterfly.dae
+		system.import('work/butterfly.em');
+		Makes a very simple butterfly model appear to flap its wings.
+
+spin.em
+circle.em
+	Status: BROKEN
+		The fix is fairly obvious, but if all you want is circular motion,
+		there are better ways to achieve it.
+
+colldemo.em
+flock_stationary.em
+	Status: BUGGY
+		Collisions seem not to be detected anymore.  Replacing work/* with
+		std/movement/* may fix the problem.
+
+collision.em
+motion.em
+units.em
+	Status: OUTDATED
+		Now maintained in std/movement/
+
+crashtest.em
+	Status: OUTDATED
+		Another bug reproduction
+
+cycle.em
+tron.em
+	Status: BROKEN?
+		Should still be working, but may be impeded by a bug in Sirikata whose
+		fix is not yet merged into stable (commit 01dfa7b, 17 Aug 2011).
+		system.import('work/tron.em'); // on your own avatar
+		[k] key to go forward, [,] to stop, [j] turns left, [k] turns right
+
+doc
+	Anim.txt
+		A list of animated meshes on the CDN, as of 18 July 2011
+	BankMsgs.txt
+	State.txt
+		An early plan for messages and data used by the bank application
+	Escrow.txt
+	EscrowProposal.txt
+	EscrowProposal.xps
+		A proposal for object ownership and trade
+	Help.txt
+		Links to Sirikata documentation
+	LibsOriginal.txt
+	LibsSubfolder.txt
+		The result of some brief confusion after upgrading my Ubuntu
+		distribution.  Be sure to rebuild after doing this, or all of
+		your libraries might be gone!
+	UserPage.txt
+	Vectors.txt
+		see http://sirikata.com/wiki/index.php?title=User:Wmonroe4
+	cppoh.log
+	cppoh_d.log
+		logs from debugging a crash under Ubuntu
+	ideas.txt
+		Ideas for stuff to do in the virtual world that I never got around
+		to doing
+	poster.odp
+	poster.pdf
+	poster_0.odp
+	poster_0.pdf
+	postercode.em
+		My research poster first draft (_0), final draft, and code snippet.
+	problem.ppt
+	problem.txt
+		A problem statement, written to get ideas for the poster.
+
+lookAt.em
+quaternion-new.em
+quaternion_fromLookAt.em
+tracking.em
+	Status: BUGGY
+		The first attempts at writing what is now util.Quaternion.fromLookAt
+		(a function which gave us no shortage of troubles).
+
+looktest.em
+	Status: WORKING
+		now at std/shim/quaternion_lookAt_tests.em
+
+rockettest.em
+	Status: WORKING
+		A visual test of lookAt (through motion.LookForward).  Notice that
+		this uses the outdated version of motion.em; the new version is even
+		smoother because it changes orientation velocity correctly.
+
+ovel.em
+	Status: WORKING
+		...but not particularly useful.  Just some redefinitions to make
+		scripts shorter for when I was first playing with orientation velocity
+		in the scripting window.
+
+pilot.em
+soccer.em
+	Status: WORKING
+		The start of an airplane football game somewhat like Altitude
+		(http://altitudegame.com/).
+		On an object you want to be the stadium:
+		system.import('work/soccer.em');
+		Then click on that object and press Enter.  Controls are
+		[f]-left [h]-right [g]-down [t]-up [r]-CCW [y]-CW [b]-brake
+
+pretty.em
+prettytest.em
+	Status: OUTDATED
+		Modifications to std.core.pretty (std/core/pretty.em).  Checked in in
+		commit 35d1090 (8 June 2011).
+
+queryDistance.em
+	Status: OUTDATED
+		An early version of Elliot Conte's distance query library (see
+		std/core/queryDistance.em).
+
+required.em
+requirer.em
+script.em
+testPersist.em
+	Status: BUGGY
+		A library written for the 17-18 Aug hackathon, which allows a user to
+		pass several script files as a package to another entity, and makes
+		that script persist.  Persistence appears not to be working, but the
+		script passing is working.  Warning: this script makes use of
+		functions that are insecure and deprecated and may be removed in a
+		future build.
+		See the comment at the bottom of script.em for example usage (ignore
+		everything after the @@@).
+
+vending.em
+vending_clone.em
+	Status: BROKEN?
+		Makes the selected object dispense ice cream bars when touched.
+		Also temporarily broken by bug fixed in 01dfa7b.
+		Select the object you want to be an ice cream vendor, then
+		system.import('work/vending.em'); // on your own avatar
+
+weather.em
+	Status: WORKING
+		system.import('work/weather.em');
+		makeClouds();
+		startLightning();
+		makePrecip();
+		// wait for a while for all the rain to get created
+		startPrecip();
+		// also try:
+			snow();
+			stopLightning();
+
+zombies
+	carGenerator-bound2.em
+	facilityGenerator.em
+	facilitymeshes.em
+	facilitytypes.em
+	hatchetGenerator.em
+	islandGenerator.em
+	streetGenerator-standalone.em
+	vertexGridGenerator-standalone.em
+		Status: BROKEN
+			May be fixable by moving to a folder called test/ and surgically
+			removing all references to park generation.
+			system.import('test/vertexGridGenerator-standalone.em');
+			// on your own avatar

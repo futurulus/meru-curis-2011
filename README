@@ -28,7 +28,8 @@ textual form.
 
 The files in this repository are very much drafts; they are not guaranteed to
 be correct, and even those which are correct now (25 Aug 2011) will almost
-certainly become outdated very quickly.
+certainly become outdated very quickly.  For a description of how each file
+works (and whether it's working), see the file HOWTO.
 
 While I hope the Emerson scripts in particular will be useful as examples, the
 usual disclaimer applies: the files in this repository come with NO WARRANTY
